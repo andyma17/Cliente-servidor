@@ -26,6 +26,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setIconImages(null);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -33,7 +34,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jMenu1.setMnemonic('R');
-        jMenu1.setText("Registro de Usuarios");
+        jMenu1.setText("Registro");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/MicrosoftTeams-image (5).png"))); // NOI18N
@@ -91,11 +92,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         new Clientes().setVisible(true);
-      //  new Clientes().setVisible(true);
+      
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
+        //  new Clientes().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
