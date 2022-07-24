@@ -1,33 +1,35 @@
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Clientes extends javax.swing.JFrame {
-     //String nombre,pApellido,sApellido,nombUsuario,contraseña;
-      //ArrayList<String> DatosClientes = new ArrayList();
-     public ArrayList <DatosClientes> DatoCliente=new ArrayList(); 
+    //String nombre,pApellido,sApellido,nombUsuario,contraseña;
+    //ArrayList<String> DatosClientes = new ArrayList();
+
+    public ArrayList<DatosClientes> DatoCliente = new ArrayList(); // Se declara la lista tipo array
+
     public Clientes() {
-        
+
         initComponents();
-        setTitle("Agregra Cliente");
+        setTitle("Agregar Cliente");
         setLocationRelativeTo(null);
         setResizable(false);
     }
 
-    
-    public void LlenarDatosCliente(){
-        String nombre,pApellido,sApellido,nombUsuario,contraseña,estado;
-        DatosClientes c=new DatosClientes();
-        nombre=jTextField1.getText();
-        pApellido=jTextField2.getText();
-        sApellido=jTextField3.getText();
-        nombUsuario=jTextField4.getText();
-        contraseña=jPasswordField1.getText();
-        if(jCheckBox1.isSelected()){
-           estado="Activo";       
-        }else{
-           estado="Inactivo";       
+    public void LlenarDatosCliente() {
+        String nombre, pApellido, sApellido, nombUsuario, contraseña, estado;
+        DatosClientes c = new DatosClientes();
+        nombre = jTextField1.getText();
+        pApellido = jTextField2.getText();
+        sApellido = jTextField3.getText();  //Se trae la infomracion de las cajas para las variables
+        nombUsuario = jTextField4.getText();
+        contraseña = jPasswordField1.getText();
+        if (jCheckBox1.isSelected()) {
+            estado = "Activo";
+        } else {
+            estado = "Inactivo";
         }
-        
+
         c.setNombre(nombre);
         c.setpApellido(pApellido);
         c.setsApellido(sApellido);
@@ -35,26 +37,47 @@ public class Clientes extends javax.swing.JFrame {
         c.setContraseña(contraseña);
         c.setEstado(estado);
         DatoCliente.add(c);
-            
+        JOptionPane.showMessageDialog(null, "Agregado Exitosamente");
+        limpiar();
+
     }
-    public void MostrarInformacionClientes(){
-       int x;
+
+    public void MostrarInformacionClientes() {
+        int x = 0;
+        String Buscado = jTextField4.getText();
         if (DatoCliente.isEmpty()) {//isEmpty indica que si la lista de elementos esta vacia
-            JOptionPane.showMessageDialog(null, "La lista no contiene elementos","Lista vacía",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La lista no contiene elementos", "Lista vacía", JOptionPane.ERROR_MESSAGE);
         } else {
+
             for (x = 0; x < DatoCliente.size(); x++) {
-                JOptionPane.showMessageDialog(null, 
-                           " Se llama:"+DatoCliente.get(x).getNombre()+
-                           " "+DatoCliente.get(x).getpApellido()+
-                           " "+DatoCliente.get(x).getsApellido()+
-                          " y su nombre de usuario es"
-                          +DatoCliente.get(x).getNombUsuario()+"Su contraseña es:"+DatoCliente.get(x).getContraseña()
-                           +"Estado"+DatoCliente.get(x).getEstado());
+
+                if (Buscado.equals(DatoCliente.get(x).getNombUsuario())) {
+                    JOptionPane.showMessageDialog(null,
+                            " Se llama: " + DatoCliente.get(x).getNombre()
+                            + " " + DatoCliente.get(x).getpApellido()
+                            + " " + DatoCliente.get(x).getsApellido()
+                            + " y su nombre de usuario es "
+                            + DatoCliente.get(x).getNombUsuario() + "Su contraseña es :" + DatoCliente.get(x).getContraseña()
+                            + "Estado" + DatoCliente.get(x).getEstado());
+                }
+
             }
-        } 
-        
+
+        }
+
     }
-    
+
+    public void limpiar() {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jPasswordField1.setText("");
+        jCheckBox1.setSelected(false);
+        jTextField1.requestFocus();
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -90,6 +113,12 @@ public class Clientes extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre de Usuario");
 
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("Contraseña");
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +138,7 @@ public class Clientes extends javax.swing.JFrame {
         });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/MicrosoftTeams-image (3).png"))); // NOI18N
-        jButton1.setToolTipText("Agregar");
+        jButton1.setToolTipText("Agregar Cliente");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -188,7 +217,7 @@ public class Clientes extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jCheckBox1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addGap(41, 41, 41))
@@ -217,6 +246,10 @@ public class Clientes extends javax.swing.JFrame {
         MostrarInformacionClientes();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,7 +277,6 @@ public class Clientes extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Clientes().setVisible(true);

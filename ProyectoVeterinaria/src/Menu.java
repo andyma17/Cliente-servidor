@@ -1,9 +1,8 @@
-import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
 
 public class Menu extends javax.swing.JFrame {
 
-    
     public Menu() {
         initComponents();
         setTitle("Veterinaria");
@@ -12,7 +11,6 @@ public class Menu extends javax.swing.JFrame {
         setResizable(false);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -26,6 +24,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setIconImages(null);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -35,6 +34,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu1.setMnemonic('R');
         jMenu1.setText("Registro");
+        jMenu1.setToolTipText("");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/MicrosoftTeams-image (5).png"))); // NOI18N
@@ -92,33 +92,32 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         new Clientes().setVisible(true);
-      
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        //  new Clientes().setVisible(true);
+
+        new Colaborador().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        int resp=JOptionPane.showConfirmDialog(null, "Desea salir","salir",
-                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-        if(resp==0){
+        int resp = JOptionPane.showConfirmDialog(null, "Desea salir", "salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (resp == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        int resp=JOptionPane.showConfirmDialog(null, "Desea salir","salir",
-                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-        if(resp==0){
+        int resp = JOptionPane.showConfirmDialog(null, "Desea salir", "salir",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (resp == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_formWindowClosing
 
-    
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
